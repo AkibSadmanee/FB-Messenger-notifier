@@ -10,10 +10,9 @@ from getpass import getpass
 import os
     
 if __name__ == "__main__":
-    #email = input("Enter Email: ")
-    #password = getpass("Enter Password: ")
-    email = "akibsadmanee@gmail.com"
-    password = "a21419967711590"
+    email = input("Enter Email: ")
+    password = getpass("Enter Password: ")
+    
     client = login(email,password,Client)
     if not os.path.exists('Messages'):
         os.makedirs('Messages')

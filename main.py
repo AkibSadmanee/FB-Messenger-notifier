@@ -7,15 +7,18 @@ from fbchat import Client
 from text2speech import read
 from time import sleep
 from getpass import getpass
+import os
+    
 if __name__ == "__main__":
     #email = input("Enter Email: ")
     #password = getpass("Enter Password: ")
     email = "akibsadmanee@gmail.com"
     password = "a21419967711590"
     client = login(email,password,Client)
-    
+    if not os.path.exists('Messages'):
+        os.makedirs('Messages')
     while True:
-        fw = open("./Records/Unread.txt", "a+",encoding="utf-8")
+        fw = open("./Messages/Unread.txt", "a+",encoding="utf-8")
         unread_msgs = client.fetchUnread()
         for threadid in unread_msgs:
             client.markAsRead(threadid)
